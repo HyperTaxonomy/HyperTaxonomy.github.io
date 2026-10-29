@@ -1,0 +1,50 @@
+<!-- Custom <head> additions for the HyperTaxonomy landing site. -->
+
+<!-- Versioned favicon link: browsers cache favicons aggressively, so bump ?v= whenever favicon.ico changes. -->
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v=21" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+  /*
+   * Mermaid edge (arrow) labels only — node boxes are never touched.
+   *
+   * 1. Remove the opaque background mermaid draws behind each arrow label.
+   * 2. Lift label text off the connector (shifting the HTML inside the label's
+   *    foreignObject leaves mermaid's SVG positioning and the node rectangles
+   *    intact). Most labels move up; the return arrow of each two-way pair —
+   *    "link storage & peer fetch" (2nd edge) and "relationships & groups"
+   *    (5th edge), which sit at the bottom of their pair — move down instead so
+   *    they read under their arrow rather than over it.
+   *
+   * The nth-child indices follow the edge definition order in index.md; if the
+   * diagram's edge order changes, update them to match.
+   */
+  .mermaid .edgeLabel,
+  .mermaid .edgeLabel p,
+  .mermaid .edgeLabel span,
+  .mermaid .edgeLabel div,
+  .mermaid .edgeLabel foreignObject > div,
+  .mermaid .edgeLabels .edgeLabel {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  .mermaid .edgeLabel rect,
+  .mermaid .edgeLabel .labelBkg {
+    fill: transparent !important;
+  }
+
+  .mermaid .edgeLabel foreignObject { overflow: visible !important; }
+
+  /* Default: lift labels above their connector. */
+  .mermaid .edgeLabel foreignObject > div { transform: translateY(-0.7em); }
+
+  /* Bottom (return) arrow of each two-way pair: drop below the connector. */
+  .mermaid .edgeLabels > g.edgeLabel:nth-child(2) foreignObject > div,
+  .mermaid .edgeLabels > g.edgeLabel:nth-child(5) foreignObject > div {
+    transform: translateY(0.9em) !important;
+  }
+</style>

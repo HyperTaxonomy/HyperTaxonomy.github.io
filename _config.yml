@@ -1,0 +1,47 @@
+title: HyperTaxonomy Suite
+description: A modicum of order for a chaotic world.
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+url: "https://hypertaxonomy.org"
+search_enabled: true
+heading_anchors: true
+# Custom scheme defined in _sass/color_schemes/hypertaxonomy.scss (light base).
+color_scheme: hypertaxonomy
+# Required for ```mermaid``` blocks to render on the published Just-the-Docs site
+# (GitHub renders them natively in-repo, but the Pages site needs this).
+mermaid:
+  version: "10.9.1"
+aux_links:
+  "GitHub": ["https://github.com/HyperTaxonomy"]
+aux_links_new_tab: true
+# Each plugin's docs is a separate site under this domain; list them in the sidebar.
+nav_external_links:
+  - title: HyperTaxonomy
+    url: https://hypertaxonomy.org/hypertaxonomy/
+    hide_icon: true
+    opens_in_new_tab: false
+  - title: TermConnect
+    url: https://hypertaxonomy.org/termconnect/
+    hide_icon: true
+    opens_in_new_tab: false
+  - title: Social Hashtags & Mentions
+    url: https://hypertaxonomy.org/social-hashtags-mentions/
+    hide_icon: true
+    opens_in_new_tab: false
+  - title: As the Crow Flies
+    url: https://hypertaxonomy.org/as-the-crow-flies/
+    hide_icon: true
+    opens_in_new_tab: false
+  - title: WP-SKOS
+    url: https://hypertaxonomy.org/wp-skos/
+    hide_icon: true
+    opens_in_new_tab: false
+back_to_top: true
+back_to_top_text: "Back to top"
+# Repo docs and local-preview files are not site pages.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
